@@ -11,5 +11,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
   }
 }
