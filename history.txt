@@ -1,0 +1,45 @@
+    1  cd /var
+    2  ls
+    3  mkdir www
+    4  cd www
+    5  exit
+    6  cd /var/www
+    7  git clone https://github.com/drwicked/ketojs
+    8  cd ketojs/
+    9  yarn
+   10  sudo apt-get update
+   11  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+   12  exit
+   13  node -v
+   14  nvm -v
+   15  nvm install node
+   16  nvm use node
+   17  cd /var/www
+   18  cd ketojs/
+   19  yarn
+   20  sudo apt-get install --no-install-recommends yarn
+   21  sudo apt-get update
+   22  sudo apt-get install --no-install-recommends yarn
+   23  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+   24  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+   25  ls
+   26  sudo apt-get install --no-install-recommends yarn
+   27  sudo apt-get update
+   28  sudo apt-get install --no-install-recommends yarn
+   29  yarn
+   30  yarn start
+   31  yarn add -D nodemon
+   32  git status
+   33  git commit -am 'bleh'
+   34  git config --global user.email "yeffrey@gmail.com"
+   35  git config --global user.name "Jeff Printy"
+   36  git commit -am 'bleh'
+   37  git push
+   38  yarn start
+   39  ls
+   40  cd ketosis-js/ && yarn && cd ..
+   41  cd keto-cookies/ && yarn && cd ..
+   42  cd keto-pug/ && yarn && cd ..
+   43  yarn start
+   44  cd keto-static/ && yarn && cd ..
+   45  history > history.txt
