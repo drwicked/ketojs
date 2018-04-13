@@ -1,0 +1,37 @@
+{
+  "name": "diet-cross-origin",
+  "version": "0.2.3",
+  "description": "A CORS module for diet.js that automatically sends CORS headers to the browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nosthertus/node-diet-cross-origin.git"
+  },
+  "keywords": [
+    "diet",
+    "CORS",
+    "resource-sharing",
+    "sharing",
+    "REST",
+    "API"
+  ],
+  "author": "Nosthertus <nosthertus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nosthertus/node-diet-cross-origin/issues"
+  },
+  "homepage": "https://github.com/Nosthertus/node-diet-cross-origin#readme",
+  "dependencies": {
+    "path-match": "^1.2.4",
+    "utils-pkg": "^0.12.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.15",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  }
+}

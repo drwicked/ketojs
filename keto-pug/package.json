@@ -1,0 +1,40 @@
+{
+  "name": "diet-pug",
+  "version": "1.0.2",
+  "description": "Pug based diet plugin for rendering Pug HTML files",
+  "homepage": "http://github.com/drwicked/diet-jade/",
+  "keywords": [
+	  "pug",
+	  "pugjs",
+    "jade",
+    "html",
+    "parse",
+    "render",
+    "plugin",
+    "diet plugin",
+    "diet",
+    "dietjs",
+    "diet.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/drwicked/diet-pug/issues",
+    "email": "drwicked@writeordie.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/drwicked/diet-pug/"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "MNZT",
+    "email": "toby@nerdping.com",
+    "url": "http://github.com/mnzt"
+  },
+  "dependencies": {
+    "pug": "2.0.0-rc.4"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">= 4.2.2"
+  }
+}

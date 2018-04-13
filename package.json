@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-esnext": "^2.0.0",
+    "eslint-config-node": "^2.0.0"
+  },
+  "name": "ketosis",
+  "version": "1.0.0",
+  "description": "ketojs monorepo",
+  "main": "server.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server.js"
+  }
+}
