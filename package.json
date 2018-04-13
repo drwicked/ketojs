@@ -10,7 +10,8 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "dev": "NODE_ENV=development nodemon server.js"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"

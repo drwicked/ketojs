@@ -16,6 +16,7 @@ const apps = {}
 const sites = [
   'writeordie.social'
 ]
+console.log('process', process.env.NODE_ENV);
 sites.forEach(site => {
   apps[site] = module.app = server()
   httpApps[site] = module.app = server()
