@@ -1,0 +1,37 @@
+{
+  "name": "keto-static-stream",
+  "version": "1.2.0",
+  "description": "Serve static files through straming objects for Diet.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drwicked/keto-static-stream.git"
+  },
+  "keywords": [
+    "diet",
+    "static",
+    "stream"
+  ],
+  "author": "Nosthertus <nosthertus@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drwicked/keto-static-stream/issues"
+  },
+  "homepage": "https://github.com/drwicked/keto-static-stream#readme",
+  "dependencies": {
+    "flutils": "^0.5.2",
+    "mime": "^1.3.4",
+    "utils-pkg": "^1.0.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.12",
+    "diet": "^0.10.8",
+    "expect": "^1.20.2",
+    "istanbul": "^0.4.4",
+    "mocha": "^3.0.2",
+    "supertest": "^2.0.0"
+  }
+}
