@@ -1,0 +1,3 @@
+EditMinion now remembers your settings!
+New Shakespeare highlight mode! See the words in your text coined by Shakespeare.
+Now counts present tense, past tense, greek and latin words

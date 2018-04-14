@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>EditMinion</title>
+    <meta name="author" content="yeff">
+   
+	<link href="css/editminion/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+	<link href="css/jquery.highlighttextarea.css" rel="stylesheet">
+
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.3.custom.js"></script>
+	<script src="js/jquery.highlighttextarea.js"></script>
+	<script src="js/jquery.autosize.min.js"></script>
+    <script src="js/jquery.poshytip.min.js"></script>
+    <script type="text/javascript" src="editminion.js"></script>
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-20145161-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	  
+
+	</script>
+	<link href="http://boredmuse.com/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+	<link href="http://boredmuse.com/css/starter-template.css" rel="stylesheet">
+	   <link rel="stylesheet" type="text/css" href="http://editminion.com/editminion.css"></link>
+  </head>
+  <body>
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">editMinion</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+			  <li><a href="http://prod.uctivity.com/">prod.uctivity.com</a></li>
+			  <li><a href="http://writeordie.com/">Write or Die</a></li>
+			  <li><a href="http://boredmuse.com/">boredMuse</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+	  
+<div id="content">
+	
+
+    <div id="strunk">
+  		<a href="strunk.html"><img src="http://editminion.com/img/Monster500px.png" width="200px"></a>
+  	</div>
+    <div id="legend">
+      <ul>
+        <li>
+          <strong>Legend:</strong>
+        </li>
+        <li class="adverb">Adverbs<span class="count"></span></li>
+        <li class="weakword">Weak Words<span class="count"></span></li>
+        <li class="saidwords">Said<span class="count"></span></li>
+        <li class="commonly">Oft-Misspelled<span class="count"></span></li>
+		<li class="homonym">Homonym<span class="count"></span></li>
+        <li class="preposition">Preposition End<span class="count"></span></li>
+		<li class="passive">Passive<span class="count"></span></li>
+        <li class="cliche">Cliché<span class="count"></span></li>
+        
+      </ul>
+    </div>
+    <div id="wrapper">
+       <div id="title">
+        <a href="http://writeordie.com" ALT="blog"><img src="http://editminion.com/img/em_blog.png" alt="EditMinion Beta"></a><a href="http://editminion.com/"><img src="http://editminion.com/img/editminionbeta.png" alt="Edit Minion Beta"></a><a href="mailto:imp@editminion.com" ALT="suggestions"><img src="http://editminion.com/img/em_suggest.png" alt="Edit Minion Suggestions"></a>
+      </div>
+      <div id="maincontent">
+        <div id="checkboxbar" class="ribbon both_ribbon">
+          <input type="checkbox" class="prefSwitch" id="check_adverb" checked="checked"> <label for="check_adverb">Adverbinator</label>
+          <input type="checkbox" class="prefSwitch" id="check_weakword" checked="checked"> <label for="check_weakword">Weak Words</label>
+          <input type="checkbox" class="prefSwitch" id="check_saidwords" checked="checked"> <label for="check_saidwords">'Said' replacements</label>
+          <input type="checkbox" class="prefSwitch" id="check_passive" checked="checked"> <label for="check_passive">Passive Voice</label>
+          <input type="checkbox" class="prefSwitch" id="check_preposition" checked="checked"> <label for="check_preposition">Ending with Preposition</label>
+		  <input type="checkbox" class="prefSwitch" id="check_homonym" checked="checked"> <label for="check_homonym">Tricky Homonyms</label>
+		  <input type="checkbox" class="prefSwitch" id="check_cliche" checked="checked"> <label for="check_cliche">Clichés</label>
+          <input type="checkbox" class="prefSwitch" id="check_commonly"> <label for="check_commonly">Common Misspellings</label>
+          <input type="checkbox" class="prefSwitch" id="check_topwords"> <label for="check_topwords">Frequently Used Words</label>
+		  
+        </div>
+        <textarea id="inputbox"></textarea> 
+        <input type="button" class="doSwitch" id="submittext" style="" value="Edit!"> 
+        <input type="button" class="doSwitch" id="cleartext" style="" value="Clear"> 
+        <input type="button" class="doSwitch" id="tryme" style="" value="Try Me">
+        <input type="checkbox" class="prefSwitch" id="hashtag"> <label for="hashtag">Add Hashtag</label>
+        <input type="checkbox" class="prefSwitch" id="reportcard" checked="checked"> <label for="reportcard">Generate Report Card</label>
+		
+		 <div id="explanationwrap">
+			<div id="explain">
+				Welcome! EditMinion is a robotic copy editor to help you refine your writing by finding common mistakes. To get started, paste a chapter of writing into the box below and click Edit! Don't paste too much or the script will stop responding. This is still very much in Beta and I'll be adding features as I come up with them. If you have suggestions, tweet <a href="http://twitter.com/drwicked">@DrWicked</a> or email <a href="mailto:imp@editminion.com">imp@editminion.com</a>. Thanks!
+			</div>
+		</div>
+
+        <div id="reportcard_out" style="display:none">
+        <h3>Report Card:</h3>
+        <table id="reportcard_table">
+	        <tr>
+	        	<td>
+	        		<strong>Total Word count: <span id="wordcount"></span></strong>
+			        <br/><div id="adverbgrade" style="background:url('http://editminion.com/img/WarningGradient.png')" class="reportgrade">&nbsp;&nbsp;&nbsp;</div> Adverbs
+					<br/><div id="weakgrade" style="background:url('http://editminion.com/img/WarningGradient.png')" class="reportgrade">&nbsp;&nbsp;&nbsp;</div> Weak Words
+					<br/><div id="passivegrade" style="background:url('http://editminion.com/img/WarningGradient.png')" class="reportgrade">&nbsp;&nbsp;&nbsp;</div> Passive Voice
+					<br/><div id="saidgrade" style="background:url('http://editminion.com/img/WarningGradient.png')" class="reportgrade">&nbsp;&nbsp;&nbsp;</div> Said
+					<br/><div id="prepositiongrade" style="background:url('http://editminion.com/img/WarningGradient.png')" class="reportgrade">&nbsp;&nbsp;&nbsp;</div> Ending with prepositions
+		        	<br/><small>These are arbitrary judgments, I will be refining them. Green = good, Yellow = caution.</small>
+		        </td>
+		    	<td>
+		    		<strong>Frequently Occurring Words</strong>
+		    		<ul id="occurrence"></ul>
+		    	</td>		    	
+		    	<td>
+		    	<strong>Random Writing Quote</strong>
+		    	<div class="quotes"></div></td>
+		    </tr>
+	    </table>
+	        <hr>
+        </div>
+        <div id="output"></div>
+        <div id="tagline"><small>EditMinion is a Prod.uctivity product, in conjunction with <a href="http://writeordie.com">Write or Die</a>
+        <br/>Code/Concept &copy;2012 Jeff Printy. Your words are your own, nothing is saved here.
+        </small></div>
+      </div>
+    </div>
+	  </div>
+  </body>
+</html>

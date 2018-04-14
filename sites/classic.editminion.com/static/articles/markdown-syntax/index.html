@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Markdown syntax - editMinion
+    </title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lusitana:400|Merriweather:400,700,300">
+    <link rel="stylesheet" href="css/editminion/jquery-ui-1.10.3.custom.css">
+    <link rel="stylesheet" href="css/bootstrapnav.css">
+    <link rel="stylesheet" href="css/editminion.css">
+  </head>
+  <body class="article-detail">
+    <div class="navbar-inverse">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">editMinion</a></li>
+          <li><a href="http://writeordie.com/" target="_blank">Write or Die</a></li>
+          <li><a href="http://wordwar.io/" target="_blank">wordWar</a></li>
+          <li><a href="http://boredmuse.com/" target="_blank">boredMuse</a></li>
+          <li><a href="http://prod.uctivity.com/" target="_blank">prod.uctivity.com</a></li>
+        </ul>
+        <ul style="float:right; margin: 3px 0px 0px 0px; opacity:.5">
+          <li><a href="http://twitter.com/DrWicked"><img src="twitterCircle.png" height="42px"></a></li>
+        </ul>
+      </div>
+    </div>
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Markdown syntax</h1>
+        <p class="author">Written by <span class="author">John Gruber</span>
+        </p>
+      </div>
+    </header>
+    <div id="content">
+      <div id="legend" style="display:none">
+        <ul>
+          <li class="legendLabel"><strong>Legend:</strong></li>
+          <li id="adverbLegend" class="legendLabel adverb">Adverbs<span class="count"></span></li>
+          <li id="weakwordLegend" class="legendLabel weakword">Weak Words<span class="count"></span></li>
+          <li id="saidLegend" class="legendLabel saidwords">Said<span class="count"></span></li>
+          <li id="homonymLegend" class="legendLabel homonym">Homonym<span class="count"></span></li>
+          <li id="prepositionLegend" class="legendLabel preposition">Preposition End<span class="count"></span></li>
+          <li id="passiveLegend" class="legendLabel passive">Passive<span class="count"></span></li>
+          <li id="clicheLegend" class="legendLabel cliche">Clichés<span class="count"></span></li>
+        </ul>
+      </div>
+      <div id="maincontent">
+        <div id="strunkLoading" style="display:none" class="loading"><img src="strunkOptimized.gif" alt="strunkOptimized" width="" height=""></div>
+        <div style="display:none" class="fadeMe loading"></div>
+        <div id="checkboxbar" class="ribbon both_ribbon">
+          <div id="editSwitches" class="hideForLiveEdit"><span id="adverb-tip" class="switch-wrapper">
+              <input id="check_adverb" type="checkbox" title="Adverbinator" checked="checked" class="prefSwitch"></span><span id="weakword-tip" class="switch-wrapper">
+              <input id="check_weakword" type="checkbox" title="Weak Words" checked="checked" class="prefSwitch"></span><span id="saidwords-tip" class="switch-wrapper">
+              <input id="check_saidwords" type="checkbox" title="Said" checked="checked" class="prefSwitch"></span><span id="passive-tip" class="switch-wrapper">
+              <input id="check_passive" type="checkbox" title="Passive Voice" checked="checked" class="prefSwitch"></span><span id="preposition-tip" class="switch-wrapper">
+              <input id="check_preposition" type="checkbox" title="Prepositions" checked="checked" class="prefSwitch"></span><span id="homonym-tip" class="switch-wrapper">
+              <input id="check_homonym" type="checkbox" title="Homonyms" checked="checked" class="prefSwitch"></span><span id="cliche-tip" class="switch-wrapper">
+              <input id="check_cliche" type="checkbox" title="Cliché" checked="checked" class="prefSwitch"></span><span id="shakespeare-tip" class="switch-wrapper hideForLiveEdit">
+              <input id="shakespeare" type="checkbox" title="Shakespeare" class="prefSwitch"></span><span id="commonly-tip" class="switch-wrapper hidden">
+              <input id="check_commonly" type="checkbox" title="Misspellings" class="prefSwitch"></span><span id="topwords-tip" class="switch-wrapper hidden">
+              <input id="check_topwords" type="checkbox" title="Frequently Used Words" class="prefSwitch"></span><span id="greek-tip" class="switch-wrapper">
+              <input id="check_greek" type="checkbox" title="Greek" class="prefSwitch"></span><span id="latin-tip" class="switch-wrapper">
+              <input id="check_latin" type="checkbox" title="Latin" class="prefSwitch"></span><span id="german-tip" class="switch-wrapper">
+              <input id="check_german" type="checkbox" title="Germanic" class="prefSwitch"></span><span id="dialog-tip" class="switch-wrapper">
+              <input id="check_dialog" type="checkbox" title="Dialog" class="prefSwitch"></span><span id="ambrose-tip" class="switch-wrapper hideForLiveEdit">
+              <input id="ambrose" type="checkbox" title="Ambrose" class="prefSwitch"></span></div>
+          <div id="liveEditSwitches" style="display:none" class="showForLiveEdit">
+            <form id="fakeform" name="fakeform" method="post" action="#">
+              <div id="radiobtns">
+                <div class="row">
+                  <ul class="clearfix">
+                    <li><a id="adverbs" href="#" class="liveEditLabel">Adverbinator</a></li>
+                    <li><a id="weakwords" href="#" class="liveEditLabel">Weak Words</a></li>
+                    <li><a id="saidwords" href="#" class="liveEditLabel">Said</a></li>
+                    <li><a id="passive" href="#" class="liveEditLabel">Passive Voice</a></li>
+                    <li><a id="prepositions" href="#" class="liveEditLabel">Prepositions</a></li>
+                    <li><a id="homonyms" href="#" class="liveEditLabel">Homonyms</a></li>
+                    <li><a id="cliche" href="#" class="liveEditLabel">Clich&#233;s</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div id="fullradios">
+                <input id="adverbs-rdio" type="radio" name="liveEditRadio" value="adverbs" checked="checked">
+                <input id="weakwords-rdio" type="radio" name="liveEditRadio" value="weakwords">
+                <input id="saidwords-rdio" type="radio" name="liveEditRadio" value="saidwords">
+                <input id="passive-rdio" type="radio" name="liveEditRadio" value="passive">
+                <input id="prepositions-rdio" type="radio" name="liveEditRadio" value="prepositions">
+                <input id="homonyms-rdio" type="radio" name="liveEditRadio" value="homonyms">
+                <input id="cliche-rdio" type="radio" name="liveEditRadio" value="cliche">
+              </div>
+            </form>
+            <!--
+            <input type="radio" class="editRadio" name="liveEditRadio" title="Adverbinator" id="radio_adverb"><label for="radio_adverb">Adverbinator</label>
+            <input type="radio" class="editRadio" name="liveEditRadio" title="Weak Words" id="radio_weakword"><label for="radio_weakword">Weak Words</label>
+            <input type="radio" class="editRadio" name="liveEditRadio" title="Said" id="radio_saidwords"><label for="radio_saidwords">Said Words</label>
+            <input type="radio" class="editRadio" name="liveEditRadio" title="Passive Voice" id="radio_passivx"><label for="radio_passive">Passive Words</label>
+            <input type="radio" class="editRadio" name="liveEditRadio" title="Prepositions" id="radio_preposition"><label for="radio_preposition">Prepositions</label>
+            <input type="radio" class="editRadio" name="liveEditRadio" title="Homonyms" id="radio_homonym"><label for="radio_homonym">Homonyms</label>
+            <input type="radio" class="editRadio" name="liveEditRadio" title="Clich&eacute;" id="radio_cliche"><label for="radio_cliche">Clich&eacute;s</label>
+            -->
+          </div>
+        </div>
+        <textarea id="inputbox"></textarea>
+        <div id="bottomRibbon" class="ribbon both_ribbon">
+          <form id="bottomTray">
+            <input id="submittext" type="button" style="" value="Edit!" class="doSwitch hideForLiveEdit">
+            <input id="cleartext" type="button" style="" value="Clear" class="doSwitch hideForLiveEdit">
+            <input id="tryme" type="button" style="" value="Try Me" class="doSwitch hideForLiveEdit"><span class="switch-wrapper liveEditSpan">
+              <input id="enableTooltips" type="checkbox" title="Tooltips" checked="checked"></span>
+          </form>
+        </div>
+        <div id="explanationwrap">
+          <div id="explain">
+            Welcome! EditMinion is a robotic copy editor to help you refine 
+            your writing by finding common mistakes. To get started, paste 
+            a chapter of writing into the box above and click Edit! 
+            Don't paste too much or the script will stop responding. 
+            This is still very much in Beta and I"ll be adding features 
+            as I come up with them. If you have suggestions, tweet&nbsp;<a href="http://twitter.com/drwicked">@DrWicked</a>&nbsp;or email&nbsp;<a href="mailto:imp@editminion.com">imp@editminion.com</a>. Thanks!
+            <div id="quoteWrap" class="pointer">
+              <h3>Random Writing Quote</h3>
+              <div class="quotes"></div>
+            </div>
+          </div>
+        </div>
+        <div id="scrollTo"></div>
+        <div id="reportcard_out" style="display:none">
+          <ul id="reportType" style="display:none">
+            <li id="wordPanelTitle" class="paneTitle active">Word Analysis</li>
+            <li id="sentencePanelTitle" class="paneTitle">Sentence Analysis</li>
+          </ul>
+          <h3 id="minionReport_label">Minion Analysis Results</h3>
+          <table id="reportcard_table">
+            <tr>
+              <td style="max-width:320px">
+                <h3>Total Word count:<span id="wordcount"></span></h3>
+                <div id="adverbReport" class="reportRow"><span id="adverbGrade" class="reportGrade"></span>
+                  <div id="adverbLabel">Adverbs</div>
+                </div>
+                <div id="weakReport" class="reportRow"><span id="weakGrade" class="reportGrade"></span>
+                  <div id="weakLabel">Weak</div>
+                </div>
+                <div id="passiveReport" class="reportRow"><span id="passiveGrade" class="reportGrade"></span>
+                  <div id="passiveLabel">Passive Voice</div>
+                </div>
+                <div id="saidReport" class="reportRow"><span id="saidGrade" class="reportGrade"></span>
+                  <div id="saidLabel">Said</div>
+                </div>
+                <div id="prepositionReport" class="reportRow"><span id="prepositionGrade" class="reportGrade"></span>
+                  <div id="prepositionLabel">Ending with prepositions</div>
+                </div>
+                <div class="reportRow">
+                  <div class="reportGrade blankGrade"></div>
+                  <div id="presentLabel"></div>
+                </div>
+                <div class="reportRow">
+                  <div class="reportGrade blankGrade"></div>
+                  <div id="pastLabel"></div>
+                </div>
+                <div class="reportRow">
+                  <div class="reportGrade blankGrade"></div>
+                  <div id="latinLabel"></div>
+                </div>
+                <div class="reportRow">
+                  <div class="reportGrade blankGrade"></div>
+                  <div id="greekLabel"></div>
+                </div><br>
+                <h3>Sentence Length Graph</h3>
+                <div id="graphWrap">
+                  <div id="sentenceGraph"></div>
+                </div>
+                <div id="averageSentence_label"></div>
+                <!-- .smallText These are arbitrary judgments, I will be refining them. Green = good, Yellow = caution.-->
+              </td>
+              <td rowspan="2">
+                <h3>Frequently Occurring Words</h3>
+                <ul id="occurrence"></ul>
+              </td>
+              <td id="nameColumn">
+                <h3>Characters and Places</h3>
+                <ul id="characterList"></ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div id="longestSentence_label" class="toolButton">Longest Sentence</div>
+              </td>
+              <td>
+                <div id="longest" class="toolButton">Show Longest sentences</div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3" id="longestSentence">
+                <div id="longestSentence_text"></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div id="sentenceWrap">
+          <ol id="sentenceList"></ol>
+        </div>
+        <div id="outputWrap">
+          <hr>
+          <div id="output" style="display:none;" class="hideForLiveEdit"></div>
+        </div>
+        <div id="tagline">EditMinion is a&nbsp;<a href="http://prod.uctivity.com">Prod.uctivity</a>&nbsp;product, in conjunction with&nbsp;<a href="http://writeordie.com">Write or Die</a><br>Strunk Mascot drawn by <a href="http://rachelanding.com/">Rachel Anding</a></div>
+      </div>
+    </div>
+    <footer>
+      <div class="copy-wrap">
+        <div class="nav"><a href="/">« Full blog</a></div>
+        <section class="copy">
+          <p>&copy; 2015 Dr Wicked &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+    <script src="js/basket.full.min.js"></script>
+    <script>
+      basket.require({url:'js/jquery-1.11.3.min.js'}).then(function(){
+       basket.require(
+        {url:'js/jquery-ui.min.js'},
+        {url:'js/jquery.storageapi.min.js'},
+        {url:'js/default.js'}
+       ).then(function(){
+        basket.require({url:'js/editminion.js',skipCache:true});
+       })
+      });
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20145161-1']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,193 @@
+
+<div id="strunkLoading" class="loading" style="display:none"><img src="strunkOptimized.gif" alt="strunkOptimized" width="" height="" /></div>
+  <div class="fadeMe loading" style="display:none">
+	  
+  </div>
+	<div class="ribbon both_ribbon" id="checkboxbar">
+		<div id="editSwitches" class="hideForLiveEdit">
+			<span class="switch-wrapper" id="adverb-tip">
+				<input title="Adverbinator" checked="checked" class="prefSwitch" id="check_adverb" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="weakword-tip">
+				<input title="Weak Words" checked="checked" class="prefSwitch" id="check_weakword" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="saidwords-tip">
+				<input title="Said" checked="checked" class="prefSwitch" id="check_saidwords" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="passive-tip">
+				<input title="Passive Voice" checked="checked" class="prefSwitch" id="check_passive" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="preposition-tip">
+				<input title="Prepositions" checked="checked" class="prefSwitch" id="check_preposition" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="homonym-tip">
+				<input title="Homonyms" checked="checked" class="prefSwitch" id="check_homonym" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="cliche-tip">
+				<input title="Clich&eacute;" checked="checked" class="prefSwitch" id="check_cliche" type="checkbox"> 
+			</span>
+			<span class="switch-wrapper hidden" id="commonly-tip">
+				<input title="Misspellings" class="prefSwitch" id="check_commonly" type="checkbox">
+			</span>
+			<span class="switch-wrapper hidden" id="topwords-tip">
+				<input title="Frequently Used Words" class="prefSwitch" id="check_topwords" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="greek-tip">
+				<input title="Greek" class="prefSwitch" checked="checked" id="check_greek" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="latin-tip">
+				<input title="Latin" class="prefSwitch" id="check_latin" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="german-tip">
+				<input title="Germanic" class="prefSwitch" id="check_german" type="checkbox">
+			</span>
+			<span class="switch-wrapper" id="dialog-tip">
+				<input title="Dialog" class="prefSwitch" id="check_dialog" type="checkbox">
+			</span>
+			<span class="switch-wrapper hideForLiveEdit" id="ambrose-tip">
+				<input title="Ambrose" class="prefSwitch" id="ambrose" type="checkbox">
+			</span>
+		</div>
+		<div id="liveEditSwitches" class="showForLiveEdit" style="display:none">
+		<form id="fakeform" name="fakeform" method="post" action="#">
+	        <div id="radiobtns">
+	          <div class="row">
+	            <ul class="clearfix">
+	              <li><a href="#" class="liveEditLabel" id="adverbs">Adverbinator</a></li>
+	              <li><a href="#" class="liveEditLabel" id="weakwords">Weak Words</a></li>
+	              <li><a href="#" class="liveEditLabel" id="saidwords">Said</a></li>
+	              <li><a href="#" class="liveEditLabel" id="passive">Passive Voice</a></li>
+	              <li><a href="#" class="liveEditLabel" id="prepositions">Prepositions</a></li>
+	              <li><a href="#" class="liveEditLabel" id="homonyms">Homonyms</a></li>
+	              <li><a href="#" class="liveEditLabel" id="cliche">Clich&eacute;s</a></li>
+	            </ul>
+	          </div>   
+	        </div>
+	      
+	        <div id="fullradios">
+	          <input type="radio" name="liveEditRadio" id="adverbs-rdio" value="adverbs" checked="checked">
+	          <input type="radio" name="liveEditRadio" id="weakwords-rdio" value="weakwords">
+	          <input type="radio" name="liveEditRadio" id="saidwords-rdio" value="saidwords">
+	          <input type="radio" name="liveEditRadio" id="passive-rdio" value="passive">
+	          <input type="radio" name="liveEditRadio" id="prepositions-rdio" value="prepositions">
+	          <input type="radio" name="liveEditRadio" id="homonyms-rdio" value="homonyms">
+	          <input type="radio" name="liveEditRadio" id="cliche-rdio" value="cliche">
+	        </div>
+			</form>
+<script type="text/javascript">
+$(function(){
+  $('#radiobtns .row ul li a').on('click', function(e){
+    e.preventDefault();
+    var catid = '#'+$(this).attr('id') + "-rdio";
+    
+    var checkedinput = $("input[name='category']:checked").val();
+    
+    if(checkedinput == undefined) {
+      // if no input is defined then we set the button clicked first
+      $(catid).prop('checked', true);
+    } else {
+      // otherwise unset everything and then set the clicked button
+      $("input[name='category']").prop('checked', false);
+      $(catid).prop('checked', true);
+    }
+    
+    var newval = $("input[name='category']:checked").val();
+    if($(this).attr('id') == newval) {
+      $('#radiovaltxt').html(newval);
+    }
+
+    if($(this).hasClass('sel')) {
+      // if already selected then we do nothing
+    } else {
+      $('#radiobtns .row ul li a').removeClass('sel');
+      $(this).addClass('sel');
+    }
+  });
+
+});
+</script>
+
+<!--			<input type="radio" class="editRadio" name="liveEditRadio" title="Adverbinator" id="radio_adverb"><label for="radio_adverb">Adverbinator</label>
+			<input type="radio" class="editRadio" name="liveEditRadio" title="Weak Words" id="radio_weakword"><label for="radio_weakword">Weak Words</label>
+			<input type="radio" class="editRadio" name="liveEditRadio" title="Said" id="radio_saidwords"><label for="radio_saidwords">Said Words</label>
+			<input type="radio" class="editRadio" name="liveEditRadio" title="Passive Voice" id="radio_passivx"><label for="radio_passive">Passive Words</label>
+			<input type="radio" class="editRadio" name="liveEditRadio" title="Prepositions" id="radio_preposition"><label for="radio_preposition">Prepositions</label>
+			<input type="radio" class="editRadio" name="liveEditRadio" title="Homonyms" id="radio_homonym"><label for="radio_homonym">Homonyms</label>
+			<input type="radio" class="editRadio" name="liveEditRadio" title="Clich&eacute;" id="radio_cliche"><label for="radio_cliche">Clich&eacute;s</label>
+	-->
+		</div>
+	</div>
+	
+<textarea id="inputbox"></textarea>
+<div class="ribbon both_ribbon" id="bottomRibbon">
+	<form id="bottomTray">
+		<input class="doSwitch hideForLiveEdit" id="submittext" style="" type="button" value="Edit!"> 
+		<input class="doSwitch hideForLiveEdit" id="cleartext" style="" type="button" value="Clear"> 
+		<input class="doSwitch hideForLiveEdit" id="tryme" style="" type="button" value="Try Me"> 
+		<span class="switch-wrapper liveEditSpan">
+			<input title="Tooltips" id="enableTooltips" checked="checked" type="checkbox">
+		</span>
+<!--
+		<span class="switch-wrapper hideForLiveEdit">
+			<input title="Generate Report Card" checked="checked" class="prefSwitch" id="reportcard" type="checkbox">
+		</span>
+-->
+	</form>
+</div>
+	<div id="explanationwrap">
+		<div id="explain">
+			Welcome! EditMinion is a robotic copy editor to help you refine your writing by finding common mistakes. To get started, paste a chapter of writing into the box above and click Edit! Don't paste too much or the script will stop responding. This is still very much in Beta and I'll be adding features as I come up with them. If you have suggestions, tweet <a href="http://twitter.com/drwicked">@DrWicked</a> or email <a href="mailto:imp@editminion.com">imp@editminion.com</a>. Thanks!
+		</div>
+	</div>
+
+	<div id="reportcard_out" style="display:none">
+		<h3>Report Card:</h3>
+
+		<table id="reportcard_table">
+			<tr>
+				<td>
+					<h3>Total Word count: <span id="wordcount"></span></h3>
+
+					<div class="reportgrade" id="adverbgrade" style="background:url('css/img/WarningGradient.png')">
+						&nbsp;&nbsp;&nbsp;
+					</div>Adverbs<br>
+
+					<div class="reportgrade" id="weakgrade" style="background:url('css/img/WarningGradient.png')">
+						&nbsp;&nbsp;&nbsp;
+					</div>Weak Words<br>
+
+					<div class="reportgrade" id="passivegrade" style="background:url('css/img/WarningGradient.png')">
+						&nbsp;&nbsp;&nbsp;
+					</div>Passive Voice<br>
+
+					<div class="reportgrade" id="saidgrade" style="background:url('css/img/WarningGradient.png')">
+						&nbsp;&nbsp;&nbsp;
+					</div>Said<br>
+
+					<div class="reportgrade" id="prepositiongrade" style="background:url('css/img/WarningGradient.png')">
+						&nbsp;&nbsp;&nbsp;
+					</div>Ending with prepositions<br>
+					<br/>
+					<smaller>These are arbitrary judgments, I will be refining them. Green = good, Yellow = caution.</smaller>
+					
+				</td>
+
+				<td>
+					<h3>Frequently Occurring Words</h3>
+					<ul id="occurrence"></ul>
+				</td>
+
+				<td>
+					<h3>Random Writing Quote</h3>
+					<div class="quotes"></div>
+				</td>
+			</tr>
+		</table>
+		<hr>
+	</div>
+
+	<div class="hideForLiveEdit" id="output" style="display:none;"></div>
+
+	<div id="tagline">
+		EditMinion is a <a href="http://prod.uctivity.com">Prod.uctivity</a> product, in conjunction with <a href="http://writeordie.com">Write or Die</a>
+	</div>

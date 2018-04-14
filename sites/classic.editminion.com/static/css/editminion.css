@@ -1,0 +1,956 @@
+/* pace-theme-barber-shop.tmpl.css */
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background-color: `args.color || "#29d"`;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 12px;
+  overflow: hidden;
+
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace .pace-progress-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -32px;
+  bottom: 0;
+
+  background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+  -webkit-background-size: 32px 32px;
+  -moz-background-size: 32px 32px;
+  -o-background-size: 32px 32px;
+  background-size: 32px 32px;
+
+  -webkit-animation: pace-stripe-animation 500ms linear infinite;
+  -moz-animation: pace-stripe-animation 500ms linear infinite;
+  -ms-animation: pace-stripe-animation 500ms linear infinite;
+  -o-animation: pace-stripe-animation 500ms linear infinite;
+  animation: pace-stripe-animation 500ms linear infinite;
+}
+
+@-webkit-keyframes pace-stripe-animation {
+  0% { -webkit-transform: none; transform: none; }
+  100% { -webkit-transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+@-moz-keyframes pace-stripe-animation {
+  0% { -moz-transform: none; transform: none; }
+  100% { -moz-transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+@-o-keyframes pace-stripe-animation {
+  0% { -o-transform: none; transform: none; }
+  100% { -o-transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+@-ms-keyframes pace-stripe-animation {
+  0% { -ms-transform: none; transform: none; }
+  100% { -ms-transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+@keyframes pace-stripe-animation {
+  0% { transform: none; transform: none; }
+  100% { transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+
+
+/*
+ *  Part of Tipped - The jQuery Tooltip
+ *  http://projects.nickstakenburg.com/tipped
+ *
+ *  Documentation:
+ *  http://projects.nickstakenburg.com/tipped/documentation/skins
+ *
+ *  IMPORTANT!:
+ *  It's recommended to add CSS for custom skins in a separate file,
+ *  that way this file can be updated without losing your own skins.
+ */
+ 
+/* Font styling for all skins */
+.t_ContentContainer {
+  color: #333;
+  font-size: 11px;
+  line-height: 17px;
+  padding: 10px;
+}
+
+/* Skins with a different font color */
+.t_Content_black,
+.t_Content_dark,
+.t_Content_gray {
+  color: #efefef;
+}
+
+/* Styling links so they are visible no matter is defined on the page behind */
+.t_ContentContainer a,
+.t_ContentContainer a:hover {
+  color: #8e8e8e;
+  text-decoration: none;
+  background: none;
+  border: 0;
+}
+.t_ContentContainer a:hover {
+  text-decoration: underline;
+}
+
+/* Some skins need different link colors for visibility */
+.t_Content_dark a, .t_Content_dark a:hover,
+.t_Content_black a, .t_Content_black a:hover {
+  color: #ccc;
+}
+.t_Content_gray a, .t_Content_gray a:hover { color: #232323; }
+
+
+
+/* RGB */
+.t_Content_red,
+.t_Content_green,
+.t_Content_blue {
+  color: #efefef;
+  font-size: 11px;
+  line-height: 17px;
+  padding: 10px;
+}
+
+.t_Content_red a,
+.t_Content_red a:hover,
+.t_Content_green a,
+.t_Content_green a:hover,
+.t_Content_blue a,
+.t_Content_blue a:hover {
+  text-decoration: none;
+  background: none;
+  border: 0;
+  color: #ccc;
+}
+.t_Content_red a:hover,
+.t_Content_green a:hover,
+.t_Content_blue a:hover {
+  text-decoration: underline;
+}
+
+
+/* tiny */
+.t_Content_tiny {
+  color: #efefef;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 6px 9px;
+}
+.t_Content_tiny a,
+.t_Content_tiny a:hover {
+  color: #b3b3b3;
+  text-decoration: none;
+  background: none;
+  border: 0;
+}
+
+
+/*
+ * Layout (DON'T MODIFY BELOW!)
+ */
+.t_Tooltip {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  background-color: transparent;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+}
+.t_Tooltip.t_hidden { opacity: 0; }
+.t_Tooltip.t_visible { opacity: 1; }
+
+.t_Skin {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.t_Skin * { zoom: 1; } /* IE7 */
+
+.t_Bubble {
+  position: relative;
+}
+
+.t_Background,
+.t_Stem { position: absolute; }
+
+.t_Close {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+}
+
+.t_CloseButtonShift {
+  position: relative;
+  overflow: hidden;
+  float: left;
+}
+.t_CloseState {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  left: 0;
+}
+
+.t_Content {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.t_iframeShim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  zoom: 1;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+/*
+ * Shadow
+ */
+.t_Shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.t_Shadow .t_ShadowInnerWrapper{
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.t_ShadowBubble {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  float: left;
+}
+.t_ShadowBackground,
+.t_ShadowStem { position: absolute; }
+.t_ShadowBackground *, .t_ShadowStem * { float: left; }
+
+ 
+.t_CloseButtonShadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+.t_UpdateQueue {
+  position: absolute;
+  top: -15000px;
+  left: -15000px;
+  width: 5000px;
+  height: 5000px;
+  visibility: hidden;
+}
+.t_UpdateQueue .t_Tooltip,
+.t_UpdateQueue .t_Content {
+  position: relative;
+  overflow: visible;
+  float: left;
+  top: auto;
+  left: auto;
+  width: 100%;
+}
+.t_Tooltip .t_ContentContainer {
+  float: left;
+  clear: both;
+  position: relative;  
+}
+.t_UpdateQueue .t_ContentContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* jquery.switchButton.css */
+.switch-button-label {
+    float: left;
+    font-size: 10pt;
+    cursor: pointer;
+    margin-top: 3px;
+}
+
+.switch-button-label.off {
+    color: #093607;
+}
+
+.switch-button-label.on {
+    color: #fff;
+}
+
+.switch-button-background {
+    float: left;
+    position: relative;
+
+    background: #005105;
+    border: 1px solid #000;
+
+    margin: 1px 10px;
+
+    -webkit-border-radius:8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.switch-button-button {
+    position: absolute;
+
+    left: -1px;
+    top : -1px;
+
+    background: #027602;
+    border: 1px solid #313131;
+
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+.switch-wrapper {
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+
+/**
+ * jQuery highlightTextarea 2.0
+ *
+ * Copyright 2012, Damien "Mistic" Sorel
+ *    http://www.strangeplanet.fr
+ */
+
+.highlightTextarea {
+  position: relative;
+  overflow: hidden;
+}
+.highlightTextarea  .highlighterContainer {
+  position: absolute;
+  border: none;
+  margin: 0;
+  overflow: hidden;
+}
+.highlightTextarea  .highlighter {
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: transparent;
+  cursor: text;
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  width:800px
+}
+.highlightTextarea  .highlighter.debug {
+  color: #f00;
+  border: 1px solid #f00;
+  margin: -1px;
+}
+.highlightTextarea textarea {
+  position: absolute;
+  left: 0;
+  top: 0;
+  resize: none;
+  white-spaces: pre-wrap;
+  word-wrap: break-word;
+}
+.highlightTextarea  .highlight {
+  line-height: inherit;
+}
+.highlightTextarea .ui-resizable-se {
+  bottom: 13px;
+  right: 1px;
+}
+/*     PLUGINS    */
+body {
+  background:url('img/greengrad.jpg') no-repeat top center;
+  background-color: #215A00;
+  width:100%;
+  font-family: 'Merriweather';
+  padding-bottom: 40px;
+}
+.hidden {
+	display:none;
+}
+.pointer {
+	cursor:pointer;
+}
+a {
+	color: #40A700;
+}
+a:hover {
+	color: #368b00;
+}
+.copy-wrap {
+	margin-top: 15px;
+}
+.copy {
+	text-align: center;
+	font-size: 8pt;
+	color: #bbb;
+}
+
+div.fadeMe {
+  opacity:    0.5; 
+  background: #000; 
+  width:      100%;
+  height:     100%; 
+  z-index:    10;
+  top:        0; 
+  left:       0; 
+  position:   fixed; 
+}
+#strunkLoading {
+opacity: 1;
+z-index: 4000;
+top: 25%;
+left: 34%;
+position: fixed;
+padding: 20px;
+background: rgba(0,0,0,.3);
+border-radius: 40px;
+}
+
+.liveEditSpan {
+	float: right;
+	width: 110px;
+}
+#bottomTray {
+	height:30px;
+}
+#content {
+}
+.logo h1 {
+	font-family: 'Lusitana', sans-serif;
+	font-size:40pt;
+	color:black;
+	font-weight: 200;
+}
+#strunk {
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	z-index: -2;
+}
+
+a img { border: 0; }
+
+#explain {
+	padding: 5px 4px;
+}
+
+.alot_img {
+  position:absolute;
+  vertical-align:top;
+  display:inline;
+}
+
+#legend {
+	position: fixed;
+	background-color: #FFF;
+	padding: 4px;
+	right: -3px;
+	bottom: 0px;
+	z-index: 1;
+	text-align: right;
+	font-size: .7em;
+
+}
+#legend ul {
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+    
+}
+#legend li {
+padding: 4px 6px;
+margin: -2px;
+font-weight: 600;}
+.legendLabel {
+	display:none;
+}
+#longestSentence_label {
+	/* font-weight: 600; */
+	line-height: 1.3em;
+	padding-bottom: 10px;
+}
+.sentenceCount {
+	font-size: 10pt;
+	vertical-align: top;
+	color: #215A00;
+	margin: 4px 5px 4px 0px;
+}
+#longest {
+}
+.smallText {
+	font-size:smaller;
+}
+#minionReport_label {
+	font-size:22pt;
+	text-align: left;
+}
+#explanationwrap {
+  min-height:30px;
+  font-size:small;
+  padding:2px;
+}
+textarea, input { outline: none; }
+#inputbox {
+  width:800px;
+  height:500px;
+  font-family: 'Courier';
+  border: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: url('../strunk256px.png') center no-repeat;
+  resize:vertical;
+
+}
+::-webkit-input-placeholder, ::-moz-placeholder {
+   color:#333;
+}
+#outputWrap {
+	display:none;
+}
+#output {
+	line-height: 16pt;
+	font-size: 10pt;
+	margin: 0px 10px;
+}
+sup { 
+  background-color:#FFF; border:1px solid #000;
+}
+
+.alot, .adverb, .adjective, .weakword, .saidwords, .commonly, .homonym,  .preposition, .passive, .cliche , .archaic, .shakespeare {
+	padding:2px;
+	cursor: pointer
+}
+
+.alot { background: #997A63; }
+.adverb { background: #ff0; }
+.adjective { background: #ddd; }
+.weakword { background: #FF3E80; }
+.saidwords { background: #1EFF37; }
+.commonly { background: #C00; }
+.homonym { color: #339900; }
+.preposition { background: #c9f; }
+.passive { background: #ff62fe; }
+.cliche { background: #000; color: #fff;  }
+.topwords { color: #400;  }
+.archaic { background: #3ff;}
+.shakespeare { background: #fc3;}
+.greek { border-bottom: 1px dashed #3e97e5;}
+.latin { border-bottom: 1px dashed #d43f73;}
+.german { border-bottom: 1px dashed #f58830;}
+.dialog { background:rgba(0, 0, 0, 0.15); }
+.ambrose { 
+	background: #ffcc34;
+	cursor:pointer;
+}
+.count { display: none; }
+
+#wrapper {
+  width:810px;
+  margin:5px auto;
+  z-index:2;
+  
+}
+
+.tipTitle {
+	display:block;
+}
+#maincontent {
+	margin:0px auto;
+	background-color: #FFF;
+	width: 820px;
+	border: 2px #40A700 solid;
+	padding: 3px 7px 10px 7px;
+}
+
+#title {
+  margin: 0px auto;
+  width: 810px;
+  text-align:center;
+}
+
+#title img {
+	vertical-align: middle;
+}
+
+.doSwitch .ui-button label {
+	border-radius: 20px;
+}
+
+#checkboxbar {
+	position: relative;
+	top: 0px;
+	left: -10px;
+	width: 842px;
+	height: 68px;
+	font-size: .9em;
+	color:#000;
+	text-align:justify;
+	vertical-align: middle;
+	}
+#bottomRibbon {
+	position: relative;
+	top: 0px;
+	left: -10px;
+	width: 842px;
+	height: 50px;
+	font-size: .9em;
+	color:#000;
+	text-align:justify;
+	vertical-align: middle;
+}
+.ribbon{
+	color: #fff;
+	margin: 5px 0 10px;
+	position: relative;
+	background-color: #2F7A00;
+	border: 1px solid rgba(0,0,0,.3);
+	box-shadow: 0px 1px 3px rgba(0,0,0,.2);
+	padding: 10px 15px;
+	clear: both;
+	
+}
+ 
+div.left_ribbon{
+	color: #000;
+	margin-left: -10px;
+	float: left;
+}
+ 
+div.left_ribbon h2{
+	margin: 0 12px;
+}
+ 
+div.left_ribbon::before{
+	display: block;
+	width: 10px;
+	height: 0px;
+	position: absolute;
+	bottom: -10px;
+	left: -11px;
+	content: "";
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid rgb(0, 80, 116);
+}
+ 
+div.left_ribbon::after{
+	display: block;
+	width: 6px;
+	height: 44px;
+	position: absolute;
+	bottom: 3px;
+	right: -1px;
+	content: "";
+	border: 1px solid rgba(0,0,0,.3);
+	transform: skew(0deg,45deg);
+	-ms-transform: skew(0deg,45deg); /* IE 9 */
+	-webkit-transform: skew(0deg,45deg); /* Safari and Chrome */
+	-o-transform: skew(0deg,45deg); /* Opera */
+	-moz-transform: skew(0deg,45deg); /* Firefox */
+	background: rgb(0, 80, 116);
+}
+
+div.both_ribbon{
+	color: #000;
+	padding: 10px 20px 10px 10px;
+	width: 100%;
+	margin-left: -10px;
+	text-align:center;
+	display: none;
+}
+ 
+div.both_ribbon::before{
+	display: block;
+	width: 10px;
+	height: 0px;
+	position: absolute;
+	bottom: -10px;
+	left: 0px;
+	content: "";
+	border-bottom: 10px solid transparent;
+	border-right: 10px solid rgb(0, 80, 116);
+}
+ 
+div.both_ribbon::after{
+	display: block;
+	width: 10px;
+	height: 0px;
+	position: absolute;
+	bottom: -10px;
+	right: 0px;
+	content: "";
+	border-bottom: 10px solid transparent;
+	border-left: 10px solid rgb(0, 80, 116);
+}
+
+.reportGrade {
+	float:left;
+	width: 1em;
+	margin-right: 4px;
+	margin-top: 4px;
+	border-radius: 10px;
+	height: 1em;
+	display:inline;
+	background:url('img/WarningGradient.png');
+}
+.blankGrade {
+	background:none;
+}
+#reportcard_table {
+	width: 100%;
+	border-collapse: collapse;
+	/* height: 100%; */
+}
+#reportcard_table td {
+	vertical-align: top;
+	padding:0px 7px;
+	width:33%;
+	
+}
+.reportRow {
+	margin-bottom:6px;
+}
+#reportcard_out {
+	margin-top: 25px;
+	margin-bottom: 0px;
+	/* max-height: 350px; */
+}
+
+
+#reportcard_out h3 {
+	padding:2px;
+	margin:5px 0px 5px 0px;
+	border-bottom:solid 2px #819377;
+}
+#reportcard_table h3 {
+	font-size: 12pt;
+}
+ul#reportType {
+	margin-bottom:12px;
+}
+li.paneTitle {
+	display: inline;
+	cursor: pointer;
+	padding: 8px 14px;
+	border-radius: 14px;
+	background-color: transparent;
+}
+li.paneTitle.active, li.paneTitle:hover {
+	display: inline;
+	cursor: pointer;
+	padding: 8px 14px;
+	border-radius: 14px;
+	background-color: #C4DFB5;
+}
+#characterList {
+	max-height: 200px;
+	overflow: auto;
+	height: 200px;
+}
+.jqstooltip {
+	min-height:20px;
+	min-width:46px;
+	width:auto;
+	
+}
+#graphWrap {
+	max-width:300px;
+	overflow: auto;
+}
+#averageSentence_label {
+	text-align: center;
+	font-size: small;
+	margin-top:3px;
+}
+::-webkit-scrollbar {
+	width:3px;
+	height:3px;
+}
+::-webkit-scrollbar-track {
+      background-color: #eee;
+} /* the new scrollbar will have a flat appearance with the set background color */
+ 
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2); 
+} /* this will style the thumb, ignoring the track */
+ 
+::-webkit-scrollbar-button {
+      background-color: #000;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+ 
+::-webkit-scrollbar-corner {
+      background-color: black;
+      }
+
+#occurrence {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+	width: 100%;
+	max-height: 378px;
+	/* line-height: 1em; */
+	overflow-y:scroll;
+}
+#occurrence li {
+	padding:3px 4px;
+}
+#occurrence li.even {
+	background-color: #C4DFB5;
+}
+#occurrence .theCount {
+	float:right;
+}
+#sentenceList li {
+	margin: 12px 8px;
+}
+.pointer {
+	cursor: pointer;
+}
+.characterCount {
+	font-size: 7pt;
+	vertical-align: top;
+}
+#tagline {
+	text-align:center;
+	line-height:12px;
+	font-size: x-small;
+	margin-top: 35px;
+}
+#quoteWrap {
+	margin:10px 15px;
+	text-align: center;
+}
+#quoteWrap h3 {
+	font-size:14pt;
+	margin-bottom:5px;
+}
+.toolButton {
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 14px;
+	margin-top: 7px;
+	margin-bottom: 0px;
+	font-size: 11pt;
+	text-align: center;
+}
+.toolButton:hover {
+	cursor: pointer;
+	padding: 8px 14px;
+	border-radius: 14px;
+	background-color: #C4DFB5;
+}
+.quotes {
+
+	font-style:italic;
+	font-size:small;
+margin: 5px 70px;}
+.ambroseTip {
+	max-width:280px;
+}
+.ambroseTitle {
+	font-size: 1.6em;
+	border-bottom: 1px solid rgba(255,255,255,.3);
+	margin-bottom: 3px;
+	text-align: center;
+}
+.ambroseIcon {
+	float:right;
+}
+.ambroseIcon:hover {
+	
+}
+.ambroseBody {
+	text-align: center;
+}
+.navbar {
+border-radius: 4px;
+font-size: 10pt;
+}
+.sprite {
+	width: 256px; 
+	height: 256px; 
+	background: url('img/strunkSprite.png');
+}
+hr {
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+    margin: 16px 0px 20px 10px;
+    line-height: 26pt;
+}
+hr:after {
+    content: "📋";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+.header {
+	margin-top: 12px;
+	margin-bottom: -10px;
+}
+h1 {
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1.43;
+  margin-bottom: 1.35em;
+}
+
+.header h1 {
+  font-size: 2.6em;
+  text-align: center;
+  margin: 0;
+}
+.header a, .header a:hover {
+	text-decoration: none;
+	font-size: 32pt;
+	color: #171717;
+}
