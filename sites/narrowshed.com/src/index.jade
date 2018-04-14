@@ -1,0 +1,131 @@
+---
+title: Home
+template: home.jade
+---
+#q1section.section
+	h2 You're here because you're stuck
+	p#q1aDescribe So what is stuckness?  There are two kinds:  You’re stuck, or the work is.  You’re stuck whenever you’re doing something you don’t want to.  If you’re eating chocolate chip cookies and really wish you weren’t, if you’re grazing over articles or pintrest or doing the dishes when you want to be writing, you’re scrambling frantically to make a deadline, again.  You’re stuck in traffic, you’re stuck in a shitty marriage. You know the feeling. If not, try the construction this way:  you’re stuck whenever you’re not doing something you want to do.  You’re not writing scene three, you’re not starting the new book, you’re not doing enough self-promotion.  
+	p#adverbDescribe(style="display:none") Maybe you’re doing what you want, but not the way you want to --  you’re not writing quickly enough, you’re not selling enough copies of your book, you’re not enjoying your work – write that down
+	p#externalDescribe(style="display:none") Sometimes you’re not stuck, but something is. Stuckness outside you looks like this:  my book, my child, scene three, my protagonist isn’t doing what I want them to, is doing something I don’t want them to, or isn’t doing what I want the way I want them to. Whatever it is, write it down.
+	p.subDescribe Whatever it is, write it down, and write it in the negative:  
+	input(type="text", id="q1", placeholder="I'm not [verbing]")
+	#subQuestionLink.pointer This question isn't quite right.
+	form#subQuestions.startHidden
+		//- input(value="default",type="radio",onclick="$('#adverbDescribe').show();changePlaceholder('q1','I\\'m not [verbing] [adverbly]');changePlaceholder('q2','I want to [verb] more [adverbly]');")
+		label
+			input(name="stuckType",id="adverbCheck",type="checkbox",onclick="stuckAdverb()")
+			.sentenceText I'm doing what I want, but I'm not doing it how I want to. <br/>
+		label
+			input(name="stuckType",id="externalCheck", type="checkbox",onclick="stuckExternal()")
+			.sentenceText My stuckness is outside me. <br/>
+	#start2.nextLink(style="display:none",onclick="start2();") Next
+#q2section.startHidden
+	h3 A game for getting unstuck
+	p#q2aDescribe Being stuck is all about feeling powerless.  These games are tricks for luring your power back from the places it’s most likely to hide. They’re games because games are fun, and power likes fun.  Because games are voluntary and power, while it does mind applying force, will not be coerced.  Because games have rules, and power feels at home with rules. Because games have opposition, and opposition strengthens power. Because games have a goal, and power likes a clear path. And because games can be won, and power loves to win!
+	h3 Games have goals:
+	p.subDescribe Your current stuckness statement is <div id='q1restate'></div>
+	p.subDescribe Rewrite your stuckness statement this way:
+	//- input(type="text", class="questionInput", id="q2", placeholder="I want [him, her, it] to [verb] [adverbly].")
+	.sentenceText I want 
+	input(type="text", class="sentenceInput" id="externalInput", placeholder="[outside]", style="display:none")
+	.sentenceText to
+	input(type="text", class="sentenceInput" id="verb", placeholder="[verb]")
+	input(type="text", class="sentenceInput" id="adverbInput", placeholder="[adverb]", style="display:none")
+	p.subDescribe Rewrite as a <i>should</i> statement.
+	.sentenceText I should be 
+	input(type="text", class="sentenceInput" id="verbing", placeholder="[verbing]")
+	#start3.nextLink(onclick="start3()", style="display:none") Next
+#q3section.startHidden
+	h3 Games can be won:
+	p.subDescribe The verb of your game goal statement is your golden snitch. The moment you start to do that thing you’re not doing, you win.  Do you know what would that look like for you?  Write it down.  
+	p.subDescribe This should be a binary statement that makes it easy to determine whether you’re unstuck with a yes or no. Goal clarity can be helpful.
+	#q2restate
+	.sentenceText I would know I was 
+	.sentenceText.sentenceVariable#verbingRestate
+	.sentenceText &nbsp;if<br/>
+	input(type="text", class="questionInput", id="q3", placeholder="Describe a binary success condition.")
+	#q3sectionB.startHidden
+		p.subDescribe Now extend your previous sentence.  
+		#q3restate.sentenceText
+		br
+		.sentenceText the first step toward that first thing is
+		input(type="text", class="questionInput" id="successAction", placeholder="Success action")
+	#start4.nextLink(onclick="start4()", style="display:none") Next
+#q4section.startHidden
+	h3 Name your opposition
+	p.subDescribe This step is harder, add a <i>but</i> to your previous sentence.
+	p#soFar
+	#oppositionExplain.startHidden
+		p.subDescribe If you find yourself saying, “I just can’t,” try formulating it as an “I don’t know how…” even if it’s simply “I don’t know how to get myself to_______.”
+		p.subDescribe Be on your guard against explanations or rationalizations.  The competition is always desire, fear and/or doubt.  
+		p.subDescribe If there’s a thing you keep doing instead of the should you want to be doing, and it feels like an addiction, pay careful attention.  A wise and compassionate deep part of yourself knows you’re not getting something important you need, and is trying to help.  No really!  And that’s a good thing.  You deserve to get your needs met, right?  
+		p.subDescribe Figure out what need you’re trying to meet with the thing you’re doing instead of the should you want to be doing.  This isn’t always easy. Things that become addictive often have the ability to short circuit pain before we’re even aware of it.  And they offer us shame over the addiction as a decoy so our focus stays on the behavior and/or the damage it does rather than on the pain that makes it necessary.  Whatever it is you’re doing/using to shift your mood, if you can delay it just long enough to feel and name the discomfort it’s trying to help you manage, you can help it do a better job.  You start to give yourself what you actually need in ways you’ve chosen and approve of, and that alone can be enough to unstick you.  Addictions keep you stuck to the exact degree they give your power away to some activity or object outside yourself and take it away from your work.  They aren’t bad; they’re useful need indicators, and willpower has nothing to do with it.
+	form#butAlso
+		.sentenceText but I also want
+		input(type="text", class="butInput sentenceInput" id="butDesire")
+		br
+		.sentenceText but if I did
+		input(type="text", class="butInput sentenceInput" id="butFear")
+		br
+		.sentenceText but I don't know
+		input(type="text", class="butInput sentenceInput" id="butUncertain")
+	#explainMore.pointer I'm not quite ready to answer these questions, please explain more.   
+	#start5.nextLink(onclick="start5()", style="display:none") Proceed when you're ready
+#q5section.startHidden
+	h3 Your opposition
+	#dragons
+		#desireDragon.startHidden
+			h4 Desire
+			b.subDescribe Your stuckness statement for the competing desires game
+			#desireRestate.pointer(onclick="showScroll('desireSheet')",alt="click to load the corresponding game sheet")
+			#desireSheet.startHidden
+				h3 THE COMPETING DESIRES GAME
+				p.subDescribe List all the things you do or want to do that compete with your goal desire.  Group these desires into roles you fill.  If there’s a task that falls into multiple roles, assign it to one or create a new role.  Give yourself one point for each role you listed.  Now pretend I gave you $100 to pay the people who perform these roles and divide the money between them.  Be scrupulously honest with yourself, paying special attention to fears that arise about who you are as a person, what roles you should be playing, and what might happen if you reduced or inflated the relative cash value of one other the others.   
+				p.subDescribe When the list of roles you perform and the money you’ve assigned them feels right, convert money into time.  For every dollar, budget 1 hour a week.  This number, evenly split between the days of the week equals 15 hours a day.  Adjust your budget as seems appropriate.  How many hours a week did you end up budgeting for your goal?  If it doesn’t feel like enough, but you can’t take hours away from anyplace else, let yourself off the hook.   You’re already working in accordance with your values.  Recognize that many of the heaviest time expenditures are usually in roles that are temporary, but that they are what you have chosen right now.  
+				p.subDescribe Reframe your should in terms of “I wish” and “I have chosen”. It’s more honest and it put the decision making power where it actually rests – with you. 
+				p.subDescribe If some of the roles you’re spending big chunks of time servicing aren’t your choice or don’t bring you joy, but feel like obligations or external expectations, consider spending half the hours you have budgeted for your goal verb to exploring this question in your journal, with a friend or spouse or in therapy: “ If I’m spending more of my life doing X than feels good, what can I do to change that?”
+				p.subDescribe Now look at the number of hours a week you budgeted for your goal verb and commit to doing it for exactly as long has you have allotted.  Can you start now?  Do it and you win!  
+				p.subDescribe If not, do you feel excited and optimistic, with a clear first step that you’re confident you will take?   If so, is it binary?   Have you assigned it a trigger (when X happens I will Y)?  Consider asking someone else to hold you accountable. When you accomplish this, celebrate.  No matter how small the amount of time is, the act of unsticking yourself is monumental and deserves recognition and reward.  You win the Competing Desires Game.
+				p.subDescribe If not, assigning a set amount of time to verb your verb doesn’t set you into motion, there’s more than competing desires keeping you stuck.  You can return to your should statement, or move on to the Stuckness Worksheet.
+		#fearDragon.startHidden
+			h4 Fear
+			b.subDescribe Your stuckness statement for the Fear Game
+			#fearRestate.pointer(onclick="showScroll('fearSheet')",alt="click to load the corresponding game sheet")
+			#fearSheet.startHidden
+				h3 THE FEAR GAME
+				p.subDescribe Fear is a dragon, and impossible to slay.  But that doesn’t mean it has keep you from doing your work.  Fear can be tamed, starved, disarmed or tricked.  It may always live under the misty mountain, but you don’t have to pitch your tent in its mouth.
+				p.subDescribe The first effective fear hack is the ancient fairy tale one of learning its name.  Go back to your Goal statement.  Re-write it adding a comma and “but I’m afraid that if I did , I would feel _________ or that _________ would happen.”
+				p.subDescribe Try to distill the feeling or occurrence you’re worried about into a single word.  Then go back to your re-written goal statement and cross out everything after “afraid” and replace it with “of [the name of your dragon].”  As dragons are wily, give yourself three points for learning its (one of its) name(s). If your dragon proves difficult to name, just leave the statement as it is:  “I want to verb, but I’m afraid”. Give yourself a point.  
+				p.subDescribe If you know the name of your dragon, logic is your first weapon.  Fear keeps us safe. It also keeps us stuck.  Use the blade of logic to slice between acceptable and unacceptable risk.  Is this a real dragon?  Real dragons will kill you on the spot, but being afraid doesn’t necessarily mean Here There Be Dragons.  Everything worth doing is scary.  If what you fear is actually unlikely, not as bad as it seems, or something you know would not destroy, or even seriously maim you, what you need is courage.  
+				h4 Creating a magic spell for courage.
+				p.subDescribe List all the evidence you can accumulate that this dragon won’t kill you, that any damage it does is survivable, that the odds are on your side, and/or that you can handle the worst it can do.  Give yourself a point for each item in this arsenal.  Now put it all into a single sentence:  “I am afraid of X, but I know A, B, C etc. which means I can feel afraid and still verb”.  Do you believe it?  Do you feel brave?  Can you win right now by starting to verb your verb? If you can’t start right now, do you feel excited and optimistic, with a clear first step that you’re confident you will take?   If so, is it binary?   Have you assigned it a trigger (when X happens I will Y)?  Consider asking someone else to hold you accountable. Whenever you actually that step, you win! It does not matter how small the first step you take is.  Any movement in the face of fear is heroic.  Celebrate!  You won the fear game.  You’ll almost certainly have to play it again, but next time, you’ll have at least one confirmed kill under your belt.  You’ll know you can win.
+				p.subDescribe If you don’t know the name of your dragon, or if your logic has led you to the conclusion that it is, indeed, a real dragon, you don’t need courage.  Fighting dragons is foolhearty.  Instead, you need stealth.  Dragons are famously myopic and somnolent. 
+				p.subDescribe List any / all the actions you can think of that you’re confident won’t wake the dragon.  Thinking about taking action, visualizing yourself taking action, talking to anyone, even yourself about your fear, planning, doing worksheets, answering questionnaires, doodling, doing background writing, collecting research are all ways of doing work that are less likely to wake a sleeping dragon.  Give yourself a point for every tiny but binary action you feel confident you could take without waking the dragon.  Additionally, figure out what increments of time are small enough for the dragon not notice you stealing its treasure? Can you take one silent action, or steal five minutes from the dragon right now?  If you can, you win!  If you can’t, can you confidently commit to take one specific, binary, sidewise step around the dragon, or pilfer one coin of time that you feel certain runs almost no risk of waking him? 
+				p.subDescribe Create a trigger for taking action, and consider asking someone else to hold you accountable or perhaps take the step with you. When you manage to do work no matter how small or for how short a time inside the lair of the dragon, you win.  Celebrate!  You pulled one over on Fear. 
+		#uncertaintyDragon.startHidden
+			h4 Uncertainty
+			b.subDescribe Your stuckness statement for the Game of Doubt
+			#uncertaintyRestate.pointer(onclick="showScroll('uncertaintySheet')",alt="click to load the corresponding game sheet")
+			#uncertaintySheet.startHidden
+				h3 THE GAME OF DOUBT
+				p.subDescribe Unlike competing desires and fear, doubt is an intellectual problem with an emotional answer.   It is a situation, not a monster.  When you’re stuck because of something you don’t know rather than something you’re feeling, it’s less like combat and more like being lost.  When you’re lost, the first thing you need to do is gather as much information as you can about where you are.  Are you lost in a fog and can’t see your hand in front of your face? Are you lost in a forest where you can see the trees just fine, but have no idea where the path went?  Are you on a path that’s reached a fork, and you don’t know which way to turn?  Or do you have a map and know where you are and where you want to go, but not how to get there?
+				p.subDescribe Try turning your doubt into a question.  The question word is probably already in the statement.  I gave you the prompt “I don’t know….” The first word you wrote after that was probably “how” or “what.” Possibly “when,” “who,” or “why.”  Either way, pick one of these classic journalism words and write a question. Give yourself three points.
+				p.subDescribe Does this question have an answer on the map of facts (usually a who or what question)?  If it does, list three wise wizards who might know the answer, or three mystic tomes that might contain it.  Give yourself a point for each resource you list.  Resolve which to pursue first, decide on the first step in that pursuit and take it.  You win!  If you can’t take that first step right now, do you feel excited and optimistic, confident you will take it?   Is is it binary?   Have you assigned it a trigger (when X happens I will Y)?  Consider asking someone else to hold you accountable. When you actually do begin to track down possible sources of information, you win! It doesn’t matter whether the experts you ask or the books you consult contain the answer, what matters is that you got unstuck enough to start your quest for knowledge.  That’s winning.
+				p.subDescribe But what if you’ve followed every avenue of research you can think of and not found the answer?  You may be searching for Avalon.  If the answer doesn’t exist or is as obscure as it seems, tell a traveller’s tall tale.  Write it now, as a very short fable.  “For a long time I sought the truth of __________ until at last, one day, I stumbled up on a clue. . . “  Spin a yarn of how you found the facts you’re looking for.  Give yourself five points.  Can you proceed with your work as though your make believe is true?  If so, you win!  If not, rework your question into a contestant for the fear game.  Try a formulation something like this.  
+				p.subDescribe “I want to verb, but I don’t know (question) and I’m afraid that if I go forward without it I’ll feel X, or that Y will happen”.  
+				p.subDescribe Give yourself five points, then play the fear game with that statement.
+				ul
+					li If the answer to your question does not lie on any map, give up the quest for the grail of its answer.  It’s a trap!  There is no one right way, no secret key, no hidden wisdom.  The path is where the trees aren’t.  Walk forward until you smack into one, course correct, and keep going.  If the idea of moving forward in the face of uncertainty immobilizes you, consider playing the fear game.  Otherwise, here are some ways to start moving when you don’t know where you’re going:
+					li Make a Guess.  If you have an intuition about where you’ll end up, but you’re waiting for confirmation or permission, go that direction without assurance, but with courage.  If you can take one step in the face of your doubt right now, do it. You win! If not, do you feel excited and optimistic, with a clear first step that you’re confident you will take?   If so, is it binary?   Have you assigned it a trigger (when X happens I will Y)?  Consider asking someone else to hold you accountable. When you accomplish this, celebrate.  No matter how small the step is, if you’re moving, you’ve won the doubt game.  
+					li List Your Options.  Create a catalog of all the different ways you could go. Give yourself a point for each.  Then rule out the ones you don’t like, and let chance or a friend pick the option you’ll use.  Often when something or someone else makes the decision for us, they pick the wrong answer, but we know it’s wrong only in the moment they pick it. If you’ve chosen an option, act on it right now and you win!  If you can’t act on it in the moment, but if you feel excited and optimistic, with a clear binary first step that you’re confident you will take, you’re still in the endgame.  Golden snitch sighted!  Assign the action a trigger and possibly a friend to hold you accountable.  Then act.  You win.  Celebrate!  
+					li Rally the Nos.  List all the things you know the answer isn’t.  Give yourself a point per. Then try on their inverses as solutions.  If you find one that even mostly fits, commit to it.  Or try adding two wrong answers together and see if it makes a right, or at least a right-enough answer, and use it.  Or pick the least wrong of the wrong answers and go with that. Any which way, once you have an even partial answer, embrace it.  Take the first step.  You win!  If you can’t take the first step,  but if you feel excited and optimistic, with a clear binary first step that you’re confident you will take, you’re still in the endgame.  Golden snitch sighted!  Assign the action a trigger and possibly a friend to hold you accountable.  Then act.  You win.  Celebrate!  
+					li Become a (less) mad scientist.  Create a hypothesis and devise experiments to test it.  Write your question, posit an answer, and think of tests that would prove or disprove it.  One point each for the hypothesis and another each experiment you think of.  Five points for each experiment you run.  As soon as an experiment yields a positive result, rush to judgment!  This is the right answer!  Act on it.  You win! 
+
+#q6section(style="display:none")
+	h3 First Victory
+	p.subDescribe If you can negotiate a compromise with your competing desires, fears and/or doubts, you win!  
+	#start5.nextLink(onclick="start6()", style="display:block") I need more help
+	p.subDescribe If you’re facing more than one army, pick one.  It can be the once you feel you have the best chance of beating, or the most formidable one.  Either way, it’s bigger and stronger than you, so force won’t work.   You can’t beat them into submission, will your way over them, or shame them into silence.  
+	p.subDescribe When you have to negotiate, and you do because remember, they’re winning, the first step, hard as it is, is empathy.  Yes, they’re the competition, but you won’t be able to spot a compromise from an adversarial point of view. Be compassionate.  
+	#start5.nextLink(onclick="victory()", style="display:block") I have won, I can work now
+	

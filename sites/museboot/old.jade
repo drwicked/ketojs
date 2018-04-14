@@ -1,0 +1,163 @@
+doctype html
+html.no-js(lang='')
+	head
+		meta(charset='utf-8')
+		meta(http-equiv='x-ua-compatible', content='ie=edge')
+		title
+		meta(name='description', content='')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel='apple-touch-icon', href='apple-touch-icon.png')
+		// Place favicon.ico in the root directory
+		link(rel='stylesheet', href='jquery-labelauty.css')
+		link(rel='stylesheet', href='animate.css')
+		link(rel='stylesheet', href='main.css')
+		link(rel='stylesheet', href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css')
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+		//script(src='js/vendor/modernizr-2.8.3.min.js')
+	body
+		//if lt IE 8
+			p.browserupgrade
+				| You are using an 
+				strong outdated
+				|	browser. Please 
+				a(href='http://browsehappy.com/') upgrade your browser
+				|	to improve your experience.
+		// Add your site or application content here
+		h2 <span style="opacity:0.3">a</span>Muse Boot
+		h4.subtitle 10 Minutes to Writing Readiness
+		#page
+			#stepOne.section
+				h2 Get Grounded
+				#noticeWrap
+					#noticeList.inline
+					img.refresh#again(src="refresh.png")
+				#adjectives
+					input#adjective1(type="text",class="mousetrap")
+					input#adjective2(type="text",class="mousetrap")
+					input#adjective3(type="text",class="mousetrap")
+					input#adjective4(type="text",class="mousetrap")
+					input#adjective5(type="text",class="mousetrap lastInput")
+				.rightBtn
+					a.btn.blue.tiny#skipAdj(onclick="stepTwo()") Skip
+			.quoteWrap
+				h2#quoteCookie1
+				h2#quoteCookie2
+			#stepTwo.section.hide
+				h2 Get Moving
+				p Select the subject for the next set of exercises.
+				.radioWrap
+					input(type="radio",name="selfCharacter",value="self",data-labelauty="Myself")
+					input(type="radio",name="selfCharacter",value="character",data-labelauty="One of my Characters")
+				#characterType.hide
+					h2#characterPicked.hide
+					p What type of character?
+					.radioWrap
+						input(type="radio",name="character",value="Your protagonist's name and gender:",data-labelauty="Protagonist")
+						input(type="radio",name="character",value="Your antagonist's name and gender:",data-labelauty="Antagonist")
+						input(type="radio",name="character",value="Your character's name and gender:",data-labelauty="Other Character")
+				#2a.sub.hide
+					h3#subjectLabel Your subject's name and gender
+					input#subject(type="text",class="mousetrap",style="width:320px")
+					#genderWrap.radioWrap(style="min-width:300px;")
+						input(type="radio",name="gender",value="he",data-labelauty="Male")
+						input(type="radio",name="gender",value="she",data-labelauty="Female")
+						input(type="radio",name="gender",value="they",data-labelauty="Other",checked)
+					.rightBtn
+						a.btn.blue#go2b(style="display:none") Ready
+				#2b.sub.hide
+					h3 Finish the sentence below with a 3-word verb phrase including the gerund (-ing) form of any verb but "being".
+					.inputWrap
+						.t(style="width:80%;")
+							.tCell(style="text-align:right")
+								img.refresh#verbAgain(src="refresh.png")
+								#verbFinding.inline
+							.tCell
+								input#threeWordPhrase(type="text",placeholder="verbing",style="width:100%;")
+					.rightBtn
+						a.btn.blue.hide#go2c Okay
+				#2c.sub.hide
+					h3 Re-write that 2-word sentence with a new verb that increases intensity, specificity or emotional impact.
+					.wrap
+						#newVerbSentence.inline
+						input#betterVerb.inline(type="text", placeholder="better verb")
+					.rightBtn
+						a.btn.blue.hide#go2d Done
+				#2d.sub.hide
+					h3 Take the noun in your verb phrase and make it the subject of a two-word sentence that your protagonist would agree with. 
+					p If your verb phrase doesn’t include a noun, turn its pronoun, adverb or adjective into one.
+					input#twoWord(type="text",class="mousetrap")
+					.rightBtn
+						a.btn.blue.hide#go2e More
+				#2e.sub.hide
+					h3 Find a new verb that mean basically the same thing but increase its intensity, specificity or emotional impact.
+					#verb2
+					input#newVerb3(type="text", placeholder="better verb")
+					.rightBtn
+						a.btn.blue#go2f Proceed
+				#2f.sub.hide
+					h3#twoF Write a sentence in which your protagonist is the subject using the best verb from above.
+					input#protagSubject.sentence(type="text",class="mousetrap")
+					.rightBtn
+						a.btn.blue#go3 Alright!
+			#stepThree.section.hide
+				h2 Get Warm
+				#3a.sub
+					h3 What's the emotional tone of what you're writing next?  What do you want your readers to feel?
+					input#dominantEmotion(type="text", placeholder="emotion")
+				#3b.sub.hide
+					p Describe how that emotion feels in your body.<br/>Press enter when you're done.
+					input#feels.inline.sentence(type="text",class="mousetrap",data-next="3c",data-focus="actionFeel")
+				#3c.sub.hide
+					p Write a sentence in which the way a character performs some action makes it clear they’re feeling that emotion.
+					input#actionFeel.sentence(type="text",class="mousetrap",data-next="3d",data-focus="detailFeel")
+				#3d.sub.hide
+					p Write a sentence describing a detail or object that conveys that emotion.
+					input#detailFeel.sentence(type="text",class="mousetrap",data-next="3e",data-focus="dialogueFeel")
+				#3e.sub.hide
+					p#disdainLabel If not just the expression of that emotion, but the emotion itself were completely unacceptable to [protag] what might [pronoun], you pretend to feel instead?
+					input#disdainFeel.sentence(type="text",class="mousetrap")
+					a.btn.blue(onclick="go('#stepFour','#',this);") Next
+				#3f.sub.hide
+					p  Write four lines of dialogue in which one of the speakers is clearly feeling that emotion.
+					textarea#dialogueFeel
+					a.btn.blue(onclick="go('#3f','#disdainFeel',this);threeF();") Ready
+			#stepFour.section.hide
+				h2 Get Brilliant
+				#4a 
+					h3 Think about the relationship being described in the following metaphor:
+					p#metaphor.pointer [Metaphorical List]
+					a.btn.blue#go3(onclick="go('#4b','#rewriteSimile',this)") Ready
+				#4b.sub.hide
+					h3 Rewrite it as a simile (using “like” or “as”)
+					input#rewriteSimile.sentence(type="text",class="mousetrap",data-next="3d",data-focus="detailFeel")
+					a.btn.blue(onclick="go('#4c','#whatsItMean',this)") Ready
+				#4c.sub.hide
+					h3 What does it mean?
+					input#whatsItMean.sentence(type="text",class="mousetrap")
+					a.btn.blue(onclick="showComparison();go('#4d','#simile',this)") Ready
+				#4d.sub.hide
+					h3#comparison.pointer(onclick="showComparison()") Rewrite your simile comparing the same subject to [arenas for comparison]
+					input#simile.sentence(type="text",class="mousetrap")
+					a.btn.blue(onclick="go('#4e','#rewriteMetaphor',this)") Ready
+				#4e.sub.hide
+					h3 Rewrite it as a metaphor.
+					input#rewriteMetaphor.sentence(type="text",class="mousetrap")
+					a.btn.blue(onclick="go('#stepFive','#rewriteMetaphor',this);$('#final').focus()") Ready
+			#stepFive.section.hide
+				h1 Get to Work!
+				textarea#final
+		
+		
+		
+		
+		script(src='jquery.min.js')
+		script(src='jquery-labelauty.js')
+		script(src='jquery.scrollTo-min.js')
+		script(src='mousetrap.min.js')
+		script(src='chance.min.js')
+		script(src='museboot.js')
+		// Google Analytics: change UA-XXXXX-Y to be your site's ID.
+		script.
+			window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+			ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+		script(src='https://www.google-analytics.com/analytics.js', async='', defer='')

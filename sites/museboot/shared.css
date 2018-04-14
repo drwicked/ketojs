@@ -1,0 +1,9 @@
+#topRight {
+	position: absolute;
+	top:4px;
+	right:4px;
+	width:32px;
+	height:32px;
+	z-index:5;
+	cursor: pointer;
+}

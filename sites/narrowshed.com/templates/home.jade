@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		title Narrow Shed
+		meta(name='description', content='')
+		meta(name='author', content='')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+        
+		link(href='//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic', rel='stylesheet', type='text/css')
+		link(rel='icon', type='image/png', href='http://clockworkmagic.com/images/favicon.png')
+		link(rel='stylesheet', href='css/normalize.css')
+		link(rel='stylesheet', href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", media="screen")
+        
+		link(rel='stylesheet', href='css/skeleton.css')
+		link(rel='stylesheet', href='css/narrowShed.css')
+		link(rel='icon', type='image/png', href='http://clockworkmagic.com/images/favicon.png')
+		body
+			#mainWrap.container
+				img#headerimage(src="images/narrowshedtitle.png")
+				.jumbotron !{contents}
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+	script(src='js/jquery.autotype.js')
+	script(src='js/narrowShed.js')
+	script(src="http://uctivity.com:35729/livereload.js")
+	//-script(src='js/script.js')
+	//- Google Analytics: change UA-XXXXX-X to be your site's ID.
+	//-
+		script.
+			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+			e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+			e.src='//www.google-analytics.com/analytics.js';
+			r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+			ga('create','UA-67201564-1');ga('send','pageview');
