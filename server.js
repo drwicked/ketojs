@@ -60,7 +60,7 @@ Object.keys(sites).forEach(site => {
       })
     } else {
       https[site].view('html', kstatic);
-      https[site].get('/', $ => {
+      https[site].get('/*', $ => {
         $.send('index.html');
       })
     }
