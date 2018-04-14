@@ -8,7 +8,10 @@ const cache = {}
 
 module.exports = function(options){
 	return function($){
-		const pathname = $.url.pathname;
+		let pathname = $.url.pathname;
+		if (pathname === '/') {
+			pathname = 'index.html'
+		}
 		const mimeType = mime.getType(pathname);
 		const extension = path.extname(pathname);
 		const dateOffset = 604800000;
@@ -18,7 +21,7 @@ module.exports = function(options){
 			// set header
 			$.header('Content-Type', mimeType);
 			$.status(200);
-			const source = options.path + $.url.pathname;
+			const source = options.path + pathname;
 			fs.stat(source, (error, stats) => {
 				if(!error){
 					$.header('Last-Modified', new Date(stats.mtime).toUTCString())
