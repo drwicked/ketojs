@@ -26,7 +26,6 @@ module.exports = function(options){
 		
 		// Find the requested file
 		const file = fileLib.findFile(dir);
-		
 		// If directory is file
 		if(file !== null && file.file){
 			const lastModified = $.header("if-modified-since");

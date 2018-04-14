@@ -4,6 +4,8 @@ const cookies = require('./keto-cookies');
 const pug = require('./keto-pug')
 const fs = require('fs')
 
+const isDev = process.env.NODE_ENV === 'development';
+
 const http = {}
 const https = {}
 
@@ -12,64 +14,62 @@ const keyFile = process.env.NODE_ENV !== 'development' && fs.readFileSync(`/etc/
 
 const sites = require('./sites.json')
 
-let stPort = 8000;
-const createServer = (siteData) => {
-  const { url: site } = siteData;
-  console.log('site', site, siteData)
-  http[site] = server();
-  http[site].header(cookies);
-  https[site] = server();
-  https[site].header(cookies);
-  const { path } = http[site];
-  const sitePath = `${path}/sites/${site}`;
+const createPugServer = ({ url, local }) => {
+  const proto = isDev ? 'http' : 'https';
+  const app = server();
+  const { path } = app;
+  const sitePath = `${path}/sites/${url}`;
   const kstatic = ketoStatic({
     path: `${sitePath}/static/`
   });
-  if (process.env.NODE_ENV === 'development') {
-    http[site].listen(stPort, {
-      name: site
-    })
-    if (!siteData.static) {
-      http[site].header(
-        pug({path: `${sitePath}/pug/`})
-      );
-      http[site].get('/', $ => {
-        $.render('index.pug');
-        $.end();
-      })
-    } else {
-      // http[site].view('file', kstatic);
-      http[site].view('html', kstatic); 
-      http[site].get('/', kstatic )
-    }
-    http[site].footer(kstatic);
-    stPort += 1
-  } else {
-    http[site].listen(`http://${site}`)
-    http[site].get('/', $ => {
-      $.redirect(`https://${site}`)
-    })
-    https[site].listen(`https://${site}`, {
-      cert: certFile,
-      key: keyFile,
-      name: site
-    })
-    if (!siteData.static) {
-      https[site].header(
-        pug({path: `${sitePath}/pug/`})
-      );
-      https[site].get('/', $ => {
-        $.render('index.pug');
-      })
-    } else {
-      https[site].view('html', kstatic);
-      https[site].get('/', $ => {
-        $.send('index.html');
-        $.end();
-      })
-    }
-    https[site].footer(kstatic);
-  }
+  const listenUrl = isDev ? local : `${proto}://${url}`;
+  app.listen(listenUrl, {
+    name: url
+  })
+  app.header(cookies);
+  app.header(
+    pug({path: `${sitePath}/pug/`})
+  ).footer(kstatic);
+  app.get('/', $ => {
+    $.render('index.pug');
+    $.end();
+  })
+  return app;
+}
+const createStaticServer = ({ url, local }) => {
+  const proto = isDev ? 'http' : 'https';
+  const app = server();
+  const { path } = app;
+  const sitePath = `${path}/sites/${url}`;
+  const kstatic = ketoStatic({
+    path: `${sitePath}/static/`
+  });
+  const listenUrl = isDev ? local : `${proto}://${url}`;
+  app.listen(listenUrl, {
+    name: url
+  })
+  app.header(cookies);
+  app.view('html', kstatic);
+  app.get('/', kstatic)
+  app.footer(kstatic);
+  return app;
 }
 
-createServer(sites['classic.editminion.com']);
+const createHttpRedirect = ({ url }) => {
+  const app = server();
+  app.listen(`http://${url}`)
+  app.get('/', $ => {
+    $.redirect(`https://${url}`)
+  })
+}
+
+const siteArray = sites.map(site => site.url);
+
+sites.forEach((data) => {
+  const { url, static } = data;
+  if (static) {
+    createStaticServer(data)
+  } else {
+    createPugServer(data)
+  }
+});

@@ -1,14 +1,17 @@
-{
-  "writeordie.social": {
+[
+  {
     "url": "writeordie.social",
-    "static": false
+    "static": false,
+    "local": 8000
   },
-  "classic.editminion.com": {
+  {
     "url": "classic.editminion.com",
-    "static": true
+    "static": true,
+    "local": 8001
   },
-  "narrowshed.com": {
+  {
     "url": "narrowshed.com",
-    "static": true
+    "static": true,
+    "local": 8002
   }
-}
+]

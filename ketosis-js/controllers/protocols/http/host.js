@@ -18,7 +18,7 @@
 // ===========================================================================
 
     module.exports = function(App, protocol, location){
-      console.log('location', location)
+      // console.log('location', location)
 
       return function(request, response){
         
@@ -77,7 +77,6 @@
           // When Headers are Ready
           function headersReady(signal){
               
-            console.log('headersReady', path)
             if(path) { 
                 app.emit('route.body', { path, app, signal })
               new RouteIterator(path, signal, bodyReady, 'body') 
