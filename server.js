@@ -11,7 +11,7 @@ const sites = {
   'writeordie.social': {
 
   },
-  'editminion.com': {
+  'classic.editminion.com': {
     static: true
   }
 }
