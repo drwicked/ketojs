@@ -7,6 +7,10 @@ const fs = require('fs')
 const http = {}
 const https = {}
 
+
+const certFile = fs.readFileSync(`/etc/letsencrypt/live/writeordie.social/cert.pem`)
+const keyFile = fs.readFileSync(`/etc/letsencrypt/live/writeordie.social/privkey.pem`)
+
 const sites = {
   'writeordie.social': {
 
@@ -52,8 +56,8 @@ Object.keys(sites).forEach(site => {
       $.redirect(`https://${site}`)
     })
     https[site].listen(`https://${site}`, {
-      cert: fs.readFileSync(`/etc/letsencrypt/live/${site}/cert.pem`),
-      key: fs.readFileSync(`/etc/letsencrypt/live/${site}/privkey.pem`),
+      cert: certFile,
+      key: keyFile,
       name: site
     })
 
