@@ -1,3 +1,10 @@
+## v0.17.0 - April 13th, 2018
+- Fork from DietJS to KetoJS
+- Update to es6
+- Add eslint rules
+- remove all `var`s
+- add `name` option to `app.listen` so if you're running multiple servers locally you can tell which is which
+
 ## v0.16.0 - May 5th, 2017
 - Bug Fix: In error.js set `signal.responded` to `false` to allow custom error routes to use `$.end()`
 - Bug Fix: In error.js check if `app.routes.error.length` is more than 0 to only iterate through custom error handlers if there are any. This allows passing the functionality to the default error handler page

@@ -4,30 +4,47 @@ const cookies = require('./keto-cookies');
 const pug = require('./keto-pug')
 const fs = require('fs')
 
-const app = module.app = server()
-
-
 const http = {}
 const https = {}
 
-const sites = [
-  'writeordie.social'
-]
+const sites = {
+  'writeordie.social': {
+
+  },
+  'editminion.com': {
+    static: true
+  }
+}
 let stPort = 8000;
-sites.forEach(site => {
+Object.keys(sites).forEach(site => {
   http[site] = module.app = server()
   http[site].header(cookies)
   https[site] = module.app = server()
   https[site].header(cookies)
-  const sitePath = `${app.path}/sites/${site}`;
+  const { path } = http[site];
+  const sitePath = `${path}/sites/${site}`;
+  const siteData = sites[site];
   if (process.env.NODE_ENV === 'development') {
-    http[site].listen(`http://localhost:${stPort}`)
-    http[site].header(
-      pug({path: `${sitePath}/pug/`})
-    );
-    http[site].view('file',
-      ketoStatic({ path: `${sitePath}/static/` })
-    );
+    http[site].listen(stPort, {
+      name: site
+    })
+    http[site].name = 'TEST'
+    const kstatic = ketoStatic({ path: `${sitePath}/static/` })
+    http[site].view('file', kstatic);
+    if (!siteData.static) {
+      http[site].header(
+        pug({path: `${sitePath}/pug/`})
+      );
+      http[site].get('/', $ => {
+        $.render('index.pug');
+      })
+    } else {
+      http[site].view('html', kstatic);
+      http[site].get('/', $ => {
+        $.send('index.html');
+      })
+    }
+    http[site].footer(kstatic);
     stPort += 1
   } else {
     http[site].listen(`http://${site}`)
@@ -36,7 +53,8 @@ sites.forEach(site => {
     })
     https[site].listen(`https://${site}`, {
       cert: fs.readFileSync(`/etc/letsencrypt/live/${site}/cert.pem`),
-      key: fs.readFileSync(`/etc/letsencrypt/live/${site}/privkey.pem`)
+      key: fs.readFileSync(`/etc/letsencrypt/live/${site}/privkey.pem`),
+      name: site
     })
 
     https[site].header(
