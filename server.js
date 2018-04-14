@@ -10,19 +10,14 @@ const https = {}
 const certFile = process.env.NODE_ENV !== 'development' && fs.readFileSync(`/etc/letsencrypt/live/writeordie.social/cert.pem`)
 const keyFile = process.env.NODE_ENV !== 'development' && fs.readFileSync(`/etc/letsencrypt/live/writeordie.social/privkey.pem`)
 
-const sites = {
-  'writeordie.social': {
+const sites = require('./sites.json')
+console.log('sites', sites)
 
-  },
-  'classic.editminion.com': {
-    static: true
-  }
-}
 let stPort = 8000;
 Object.keys(sites).forEach(site => {
-  http[site] = module.app = server();
+  http[site] = server();
   http[site].header(cookies);
-  https[site] = module.app = server();
+  https[site] = server();
   https[site].header(cookies);
   const { path } = http[site];
   const sitePath = `${path}/sites/${site}`;
