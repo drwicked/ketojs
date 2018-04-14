@@ -4,6 +4,8 @@
 const Host = require('./host')
 
 module.exports = (app, options = {}, callback) => {
+  const { location } = app;
+  console.log('app', location)
   const { cert, key, ca, name } = options;
   // create new host object
   const protocolName = (cert || key || ca) ? 'https' : 'http' ;

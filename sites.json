@@ -1,8 +1,14 @@
 {
   "writeordie.social": {
+    "url": "writeordie.social",
     "static": false
   },
   "classic.editminion.com": {
+    "url": "classic.editminion.com",
+    "static": true
+  },
+  "narrowshed.com": {
+    "url": "narrowshed.com",
     "static": true
   }
 }

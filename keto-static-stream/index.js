@@ -16,12 +16,13 @@ module.exports = function(options){
 	module.CONST.OPTIONS = opts = helper.parseOptions(options);
 
 	return function($){
+		// console.log('$', $, options)
 		// Execute resolve request if passed
 		if(opts.hook && opts.hook.request){
 			opts.hook.request($);
 		}
-		
-		const dir = path.join(opts.path, $.url.pathname);
+		const pathname = $.url ? $.url.pathname : $;
+		const dir = path.join(opts.path, pathname);
 		
 		// Find the requested file
 		const file = fileLib.findFile(dir);
