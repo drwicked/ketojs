@@ -16,7 +16,6 @@ const ArrayIterator = require('es6-iterator/array')
 
 module.exports = function(route, signal, callback, state){
   const iterator = new ArrayIterator(route);
-
   function nextRoute(){
     if(!signal.stopped){
       const current = iterator.next()
