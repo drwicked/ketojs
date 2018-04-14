@@ -21,6 +21,7 @@ const sites = {
 }
 let stPort = 8000;
 Object.keys(sites).forEach(site => {
+  console.log('site', site)
   http[site] = module.app = server()
   http[site].header(cookies)
   https[site] = module.app = server()
@@ -28,12 +29,12 @@ Object.keys(sites).forEach(site => {
   const { path } = http[site];
   const sitePath = `${path}/sites/${site}`;
   const siteData = sites[site];
+  const kstatic = ketoStatic({ path: `${sitePath}/static/` })
   if (process.env.NODE_ENV === 'development') {
     http[site].listen(stPort, {
       name: site
     })
     http[site].name = 'TEST'
-    const kstatic = ketoStatic({ path: `${sitePath}/static/` })
     http[site].view('file', kstatic);
     if (!siteData.static) {
       http[site].header(
@@ -51,6 +52,7 @@ Object.keys(sites).forEach(site => {
     http[site].footer(kstatic);
     stPort += 1
   } else {
+    console.log(`:: ${site} http redirect`);
     http[site].listen(`http://${site}`)
     http[site].get('/', $ => {
       $.redirect(`https://${site}`)
@@ -60,16 +62,19 @@ Object.keys(sites).forEach(site => {
       key: keyFile,
       name: site
     })
-
-    https[site].header(
-      pug({path: `${sitePath}/pug/`})
-    );
-    https[site].view('file',
-      ketoStatic({ path: `${sitePath}/static/` })
-    );
-    https[site].get('/', $ => {
-      $.render('index.pug');
-    })
+    if (!siteData.static) {
+      https[site].header(
+        pug({path: `${sitePath}/pug/`})
+      );
+      https[site].get('/', $ => {
+        $.render('index.pug');
+      })
+    } else {
+      https[site].view('html', kstatic);
+      https[site].get('/', $ => {
+        $.send('index.html');
+      })
+    }
   }
 
 
